@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="contact"
+            type="com.example.contactsapp.data.model.Contact" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:id="@+id/contactCard"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/nameTextView"
+
+            android:text="@{contact.name}"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+
+
+            android:text="@{String.valueOf(contact.id)}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:id="@+id/emailTextView"
+
+            android:layout_height="match_parent">
+
+        </TextView>
+    </LinearLayout>
+</layout>

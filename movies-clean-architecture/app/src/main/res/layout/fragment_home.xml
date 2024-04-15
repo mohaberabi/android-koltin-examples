@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.moviescleanarchitcture.presentation.home.viewmodel.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.MainActivity">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+
+
+            android:onClick="@{()->viewmodel.goArtists()}"
+            android:id="@+id/artistButton"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:text="Artist"
+            android:textColor="@color/white"
+
+            android:layout_margin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/primary_button"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+
+
+            android:id="@+id/moviesButton"
+            app:layout_constraintTop_toBottomOf="@+id/artistButton"
+            android:text="Movies"
+            android:textColor="@color/white"
+            android:onClick="@{()->viewmodel.goToMovies()}"
+
+            android:layout_margin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/primary_button"
+            android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

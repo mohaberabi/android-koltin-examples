@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.contactsapp.viewmodel.ContactViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                android:text="@={viewmodel.inputName}"
+
+                app:layout_constraintBottom_toTopOf="@+id/emailEditText"
+                android:hint="Name"
+                android:layout_margin="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:id="@+id/nameEditText"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameEditText"
+                android:id="@+id/emailEditText"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@={viewmodel.inputEmail}"
+                android:hint="Email"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content">
+
+            </EditText>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/emailEditText"
+
+                android:text="@{viewmodel.saveOrUpdateButton}"
+                android:onClick="@{()->viewmodel.insertContact()}"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="20dp"
+                android:id="@+id/addSaveButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/emailEditText"
+                android:id="@+id/clearDeleteButton"
+
+                android:text="@{viewmodel.clearOrDeleteButton}"
+                android:onClick="@{()->viewmodel.clearAllContacts()}"
+                app:layout_constraintStart_toEndOf="@+id/addSaveButton"
+                android:layout_margin="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/recView"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                tools:listitem="@layout/contact_card"
+
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:id="@+id/recView"
+                app:layout_constraintTop_toBottomOf="@+id/clearDeleteButton"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
